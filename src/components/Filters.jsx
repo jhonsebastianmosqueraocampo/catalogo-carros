@@ -27,22 +27,41 @@ export default function Filters({ filters, setFilters }) {
           placeholder="Buscar por marca o modelo..."
           value={filters.search}
           onChange={update('search')}
-          slotProps={{ input: { startAdornment: <InputAdornment position="start"><SearchRoundedIcon fontSize="small" /></InputAdornment> } }}
+          slotProps={{
+            htmlInput: { 'data-cy': 'filter-search' },
+            input: { startAdornment: <InputAdornment position="start"><SearchRoundedIcon fontSize="small" /></InputAdornment> },
+          }}
         />
 
-        <TextField select fullWidth size="small" label="Marca" value={filters.brand} onChange={update('brand')}>
+        <TextField
+          select
+          fullWidth
+          size="small"
+          label="Marca"
+          value={filters.brand}
+          onChange={update('brand')}
+          slotProps={{ select: { 'data-cy': 'filter-brand' } }}
+        >
           <MenuItem value="Todas">Todas las marcas</MenuItem>
           {brands.map((b) => (
-            <MenuItem key={b} value={b}>
+            <MenuItem key={b} value={b} data-cy={`brand-option-${b}`}>
               {b}
             </MenuItem>
           ))}
         </TextField>
 
-        <TextField select fullWidth size="small" label="Tipo" value={filters.type} onChange={update('type')}>
+        <TextField
+          select
+          fullWidth
+          size="small"
+          label="Tipo"
+          value={filters.type}
+          onChange={update('type')}
+          slotProps={{ select: { 'data-cy': 'filter-type' } }}
+        >
           <MenuItem value="Todos">Todos los tipos</MenuItem>
           {types.map((t) => (
-            <MenuItem key={t} value={t}>
+            <MenuItem key={t} value={t} data-cy={`type-option-${t}`}>
               {t}
             </MenuItem>
           ))}
@@ -64,7 +83,7 @@ export default function Filters({ filters, setFilters }) {
           />
         </Stack>
 
-        <Button startIcon={<RestartAltRoundedIcon />} onClick={reset} size="small">
+        <Button startIcon={<RestartAltRoundedIcon />} onClick={reset} size="small" data-cy="reset-filters">
           Limpiar filtros
         </Button>
       </Stack>

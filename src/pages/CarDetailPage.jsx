@@ -71,6 +71,7 @@ export default function CarDetailPage() {
                 src={img}
                 onClick={() => setActiveImage(i)}
                 alt={`Vista ${i + 1}`}
+                data-cy="gallery-thumb"
                 sx={{
                   width: 90,
                   height: 60,
@@ -105,6 +106,7 @@ export default function CarDetailPage() {
             startIcon={<AddShoppingCartRoundedIcon />}
             onClick={handleAdd}
             sx={{ mb: 3 }}
+            data-cy="detail-add-to-cart"
           >
             Agregar al carrito
           </Button>

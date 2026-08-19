@@ -41,8 +41,8 @@ export default function Navbar() {
           </Typography>
         </Box>
 
-        <IconButton component={Link} to="/carrito" aria-label="Carrito de compras" sx={{ mr: 0.5 }}>
-          <Badge badgeContent={count} color="secondary">
+        <IconButton component={Link} to="/carrito" aria-label="Carrito de compras" sx={{ mr: 0.5 }} data-cy="cart-button">
+          <Badge badgeContent={count} color="secondary" data-cy="cart-badge">
             <ShoppingCartRoundedIcon />
           </Badge>
         </IconButton>

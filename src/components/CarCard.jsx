@@ -19,6 +19,8 @@ export default function CarCard({ car }) {
   return (
     <Card
       variant="outlined"
+      data-cy="car-card"
+      data-car-id={car.id}
       sx={{
         height: '100%',
         display: 'flex',
@@ -52,6 +54,7 @@ export default function CarCard({ car }) {
           variant="outlined"
           startIcon={<AddShoppingCartRoundedIcon />}
           onClick={() => addToCart(car)}
+          data-cy="add-to-cart-btn"
         >
           Agregar al carrito
         </Button>

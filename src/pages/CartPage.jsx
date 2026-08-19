@@ -68,7 +68,7 @@ export default function CartPage() {
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack spacing={2}>
             {items.map((item) => (
-              <Paper key={item.id} variant="outlined" sx={{ p: 2, borderRadius: 3 }}>
+              <Paper key={item.id} variant="outlined" sx={{ p: 2, borderRadius: 3 }} data-cy="cart-item" data-car-id={item.id}>
                 <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
                   <Box component="img" src={item.image} alt={`${item.brand} ${item.model}`} sx={{ width: 96, height: 64, objectFit: 'cover', borderRadius: 2 }} />
                   <Box sx={{ flexGrow: 1, minWidth: 0 }}>
@@ -123,11 +123,11 @@ export default function CartPage() {
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                 Total
               </Typography>
-              <Typography variant="subtitle1" color="secondary.main" sx={{ fontWeight: 700 }}>
+              <Typography variant="subtitle1" color="secondary.main" sx={{ fontWeight: 700 }} data-cy="cart-total">
                 {currency(total)}
               </Typography>
             </Stack>
-            <Button fullWidth variant="contained" size="large" onClick={handleCheckout}>
+            <Button fullWidth variant="contained" size="large" onClick={handleCheckout} data-cy="checkout-btn">
               Finalizar compra
             </Button>
           </Paper>
